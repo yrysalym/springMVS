@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car</title>
+</head>
+<body>
+<div class="wrapper-btn">
+    <a th:href="@{/companies}">
+        <button class="btn btn-primary" type="button">back</button>
+    </a>
+    <a th:href="@{/cars/savePage}">
+        <button class="btn btn-primary" type="button">Add</button>
+    </a>
+</div>
+<div class="container mt-3">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>Company</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.id}"></td>
+            <td th:text="${car.model}"></td>
+            <td th:text="${car.decimal}"></td>
+
+            <td>
+                <a th:href="@{/cars/delete/{carId}(carId=${car.id})}">
+                    <button class="btn btn-danger" type="submit">delete</button>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
